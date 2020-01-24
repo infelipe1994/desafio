@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Field__Container-sc-1bmjw6c-1 bSPtrl"
+    color="#222222"
+  >
+    <input
+      class="Field__Input-sc-1bmjw6c-0 chQOXI"
+      color="#222222"
+      id="d2524fed-b955-43e6-bf5a-375a9da9c976"
+      placeholder="Nome completo"
+      type="text"
+    />
+    <label
+      class="Field__Label-sc-1bmjw6c-2 bRlaNW"
+      color="#222222"
+      for="d2524fed-b955-43e6-bf5a-375a9da9c976"
+    >
+      Nome completo
+    </label>
+  </div>
+</DocumentFragment>
+`;

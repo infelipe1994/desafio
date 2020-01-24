@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Select__Container-sc-1fzd1i6-2 fHEPpu"
+    color="#222222"
+  >
+    <select
+      class="Select__Input-sc-1fzd1i6-1 kRRhPJ"
+      color="#222222"
+      id="1576b549-5774-4b57-876e-9f60b370edb6"
+      placeholder="Gênero"
+    >
+      <option
+        value="female"
+      >
+        Feminino
+      </option>
+      <option
+        value="male"
+      >
+        Masculino
+      </option>
+      <option
+        value="other"
+      >
+        Outro
+      </option>
+    </select>
+    <label
+      class="Select__Label-sc-1fzd1i6-3 fcdqBB"
+      color="#222222"
+      for="1576b549-5774-4b57-876e-9f60b370edb6"
+    >
+      Gênero
+    </label>
+    <svg
+      aria-hidden="true"
+      class="Select__Chevron-sc-1fzd1i6-0 hQZjlk"
+      focusable="false"
+      role="img"
+      style="height: 1.000rem; width: 1.000rem;"
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+        fill="#222222"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;

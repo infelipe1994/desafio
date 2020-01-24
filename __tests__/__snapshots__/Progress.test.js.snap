@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress should match snapshot 1`] = `
+<DocumentFragment>
+  <ol
+    class="Stack__Component-i9fw1o-0 ZSNEq"
+  >
+    <li
+      aria-hidden="true"
+      class="Step-sc-4n0o9v-0 iRncgk"
+    />
+    <li
+      aria-hidden="true"
+      class="Step-sc-4n0o9v-0 fscXsY"
+    />
+    <li
+      aria-hidden="true"
+      class="Step-sc-4n0o9v-0 fscXsY"
+    />
+  </ol>
+</DocumentFragment>
+`;

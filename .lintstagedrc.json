@@ -1,0 +1,3 @@
+{
+  "*.js": ["eslint --fix", "jest --passWithNoTests -u", "git add"]
+}

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Stack__Component-i9fw1o-0 iOyOpR"
+  >
+    <div>
+      Hello, world!
+    </div>
+    <div>
+      How are you today?
+    </div>
+  </div>
+</DocumentFragment>
+`;

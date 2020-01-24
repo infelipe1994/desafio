@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UploadProfilePicture should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Stack__Component-i9fw1o-0 hReGPj"
+  >
+    <div
+      class="Box-vhihpg-0 jGEIOo"
+      display="flex"
+      height="4.500rem"
+      style="cursor: pointer;"
+      width="4.500rem"
+    >
+      <label
+        for="48d5a389-9233-41e7-b267-8fa6868e6332"
+        style="cursor: pointer; line-height: 0;"
+      >
+        <svg
+          aria-hidden="true"
+          aria-label="Selecione uma foto de perfil."
+          fill="none"
+          focusable="false"
+          role="img"
+          style="height: 3.500rem; width: 3.500rem;"
+          viewBox="0 0 55 55"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M53 53V47C53 40.3726 47.2916 35 40.25 35H14.75C7.70837 35 2 40.3726 2 47V53"
+            stroke="#c2d6d7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M27.5 29C34.9558 29 41 22.9558 41 15.5C41 8.04416 34.9558 2 27.5 2C20.0442 2 14 8.04416 14 15.5C14 22.9558 20.0442 29 27.5 29Z"
+            fill-rule="evenodd"
+            stroke="#c2d6d7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+          />
+        </svg>
+        <input
+          hidden=""
+          id="48d5a389-9233-41e7-b267-8fa6868e6332"
+          type="file"
+        />
+      </label>
+    </div>
+    <button
+      class="Button__Component-sc-1mv13uc-0 IMdNu"
+      disabled=""
+      type="button"
+    >
+      Enviar foto
+    </button>
+  </div>
+</DocumentFragment>
+`;

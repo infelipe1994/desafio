@@ -1,0 +1,16 @@
+{
+  "background_color": "#ffffff",
+  "description": "App para cadastro de novos usuários.",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "512x512",
+      "src": "/icon.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "Bio Ritmo + Smart Fit",
+  "short_name": "Bio Ritmo + Smart Fit",
+  "start_url": "/",
+  "theme_color": "#00ba9f"
+}

@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout should match snapshot (can go back) 1`] = `
+<DocumentFragment>
+  <div
+    class="Layout__Container-n8xfmp-0 bjpmzm"
+    style="height: 768px;"
+  >
+    <header
+      class="Box-vhihpg-0 oLXiN"
+      height="6.000rem"
+    >
+      <div
+        class="Center-sc-1xfm2ts-0 hpzGeY"
+        style="position: relative;"
+      >
+        <svg
+          aria-hidden="true"
+          class="Layout__Back-n8xfmp-1 idSNtb"
+          fill="none"
+          focusable="false"
+          role="img"
+          style="height: 1.000rem; width: 1.500rem;"
+          viewBox="0 0 28 16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.19043 7.99999H27"
+            stroke="#c2d6d7"
+            stroke-linecap="round"
+            stroke-width="1.5"
+          />
+          <path
+            d="M9.14286 1L2 8L9.14286 15"
+            stroke="#c2d6d7"
+            stroke-linecap="round"
+            stroke-width="1.5"
+          />
+        </svg>
+        <h1
+          class="Text-las3rl-0 hNbRf"
+          font-size="x5"
+          font-weight="x1"
+        >
+          Cadastro
+        </h1>
+        <h2
+          class="Text-las3rl-0 qovVh"
+          color="water"
+          font-size="x4"
+        >
+          Endereço
+        </h2>
+      </div>
+    </header>
+    <main
+      class="Box-vhihpg-0 iHMmy"
+    >
+      <div
+        class="page-transition-enter page-transition-enter-active"
+      >
+        <div
+          class="Center-sc-1xfm2ts-0 VPMmA"
+        />
+      </div>
+    </main>
+    <footer
+      class="Box-vhihpg-0 hRTpuP"
+      display="flex"
+    >
+      <ol
+        class="Stack__Component-i9fw1o-0 ZSNEq"
+      >
+        <li
+          aria-hidden="true"
+          class="Step-sc-4n0o9v-0 fscXsY"
+        />
+        <li
+          aria-hidden="true"
+          class="Step-sc-4n0o9v-0 iRncgk"
+        />
+        <li
+          aria-hidden="true"
+          class="Step-sc-4n0o9v-0 fscXsY"
+        />
+      </ol>
+    </footer>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Layout should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Layout__Container-n8xfmp-0 bjpmzm"
+    style="height: 768px;"
+  >
+    <header
+      class="Box-vhihpg-0 oLXiN"
+      height="6.000rem"
+    >
+      <div
+        class="Center-sc-1xfm2ts-0 hpzGeY"
+        style="position: relative;"
+      >
+        <h1
+          class="Text-las3rl-0 hNbRf"
+          font-size="x5"
+          font-weight="x1"
+        >
+          Cadastro
+        </h1>
+        <h2
+          class="Text-las3rl-0 qovVh"
+          color="water"
+          font-size="x4"
+        >
+          Dados Pessoais
+        </h2>
+      </div>
+    </header>
+    <main
+      class="Box-vhihpg-0 iHMmy"
+    >
+      <div
+        class="page-transition-enter page-transition-enter-active"
+      >
+        <div
+          class="Center-sc-1xfm2ts-0 VPMmA"
+        />
+      </div>
+    </main>
+    <footer
+      class="Box-vhihpg-0 hRTpuP"
+      display="flex"
+    >
+      <ol
+        class="Stack__Component-i9fw1o-0 ZSNEq"
+      >
+        <li
+          aria-hidden="true"
+          class="Step-sc-4n0o9v-0 iRncgk"
+        />
+        <li
+          aria-hidden="true"
+          class="Step-sc-4n0o9v-0 fscXsY"
+        />
+        <li
+          aria-hidden="true"
+          class="Step-sc-4n0o9v-0 fscXsY"
+        />
+      </ol>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

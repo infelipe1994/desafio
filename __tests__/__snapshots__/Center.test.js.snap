@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Center should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Center-sc-1xfm2ts-0 VPMmA"
+  >
+    Olá, mundo!
+  </div>
+</DocumentFragment>
+`;
