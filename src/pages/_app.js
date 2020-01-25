@@ -2,11 +2,12 @@ import React from 'react'
 import App from 'next/app'
 import { ThemeProvider } from 'styled-components'
 
+import { appWithTranslation } from '@/i18n'
 import { GlobalStyle } from '@/src/components/GlobalStyle'
 import { RegisterFormContainer } from '@/src/containers/RegisterForm'
 import { theme } from '@/src/theme'
 
-export default class extends App {
+class CustomApp extends App {
   componentDidMount() {
     if (process.env.NODE_ENV === 'production') {
       return
@@ -33,3 +34,5 @@ export default class extends App {
     )
   }
 }
+
+export default appWithTranslation(CustomApp)

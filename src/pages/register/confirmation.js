@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 
+import { withTranslation } from '@/i18n'
 import { Box } from '@/src/components/Box'
 import { Center } from '@/src/components/Center'
 import { Icon } from '@/src/components/Icon'
@@ -16,7 +18,7 @@ const iconSize = {
   width: '7.000rem'
 }
 
-const Confirmation = () => {
+const Confirmation = ({ t }) => {
   const {
     formData,
     isFinished,
@@ -25,20 +27,10 @@ const Confirmation = () => {
   const { replace } = useRouter()
   const isCorrectStep = isFinished
 
-  useEffect(() => {
-    if (!isCorrectStep) {
-      alert('Retornando para o primeiro passo.')
-      replace('/register/personal-info')
-    }
-
-    console.log(formData)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  return !isCorrectStep ? null : (
+  return (
     <Layout
       currentStep={PLAN_SELECTION_FORM}
-      heading="Cadastro"
+      heading={t('Cadastro')}
       stepCount={STEP_COUNT}
     >
       <Box paddingTop="x9">
@@ -58,10 +50,10 @@ const Confirmation = () => {
                 lineHeight="x4"
                 textTransform="uppercase"
               >
-                Cadastro concluído
+                {t('Cadastro concluído')}
               </Text>
               <Text color="ocean" fontSize="x2" fontWeight="x3" lineHeight="x2">
-                Acesse a sua conta e comece a se exercitar agora mesmo!
+                {t('Acesse a sua conta e comece a se exercitar agora mesmo!')}
               </Text>
             </Stack>
           </Stack>
@@ -71,4 +63,8 @@ const Confirmation = () => {
   )
 }
 
-export default Confirmation
+Confirmation.propTypes = {
+  t: PropTypes.func.isRequired
+}
+
+export default withTranslation('common')(Confirmation)

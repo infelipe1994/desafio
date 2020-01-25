@@ -1,27 +1,30 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
+import { withTranslation } from '@/i18n'
 import { Button } from '@/src/components/Button'
 import { ProfilePicture } from '@/src/components/UploadProfilePicture/ProfilePicture'
 import { Stack } from '@/src/components/Stack'
 
-export const UploadProfilePicture = ({ onUploadPicture, pictureSrc }) => {
-  const [src, setSrc] = useState(pictureSrc)
+export const UploadProfilePicture = withTranslation('common')(
+  ({ onUploadPicture, pictureSrc, t }) => {
+    const [src, setSrc] = useState(pictureSrc)
 
-  return (
-    <Stack direction="row" spaceBetween="x3">
-      <ProfilePicture setSrc={setSrc} src={src} />
-      <Button
-        disabled={!src}
-        isOutlined
-        onClick={() => onUploadPicture(src)}
-        type="button"
-      >
-        Enviar foto
-      </Button>
-    </Stack>
-  )
-}
+    return (
+      <Stack direction="row" spaceBetween="x3">
+        <ProfilePicture setSrc={setSrc} src={src} />
+        <Button
+          disabled={!src}
+          isOutlined
+          onClick={() => onUploadPicture(src)}
+          type="button"
+        >
+          {t('Enviar foto')}
+        </Button>
+      </Stack>
+    )
+  }
+)
 
 UploadProfilePicture.defaultProps = {
   pictureSrc: ''
@@ -29,5 +32,6 @@ UploadProfilePicture.defaultProps = {
 
 UploadProfilePicture.propTypes = {
   onUploadPicture: PropTypes.func.isRequired,
-  pictureSrc: PropTypes.string
+  pictureSrc: PropTypes.string,
+  t: PropTypes.func.isRequired
 }

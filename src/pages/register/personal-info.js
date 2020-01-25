@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
+import { withTranslation } from '@/i18n'
 import { Field } from '@/src/components/Field'
 import { Form } from '@/src/components/Form'
 import { Layout } from '@/src/components/Layout'
@@ -15,7 +17,7 @@ import { formatCpf } from '@/src/utilities/formatCpf'
 import { formatDate } from '@/src/utilities/formatDate'
 import { formatPhone } from '@/src/utilities/formatPhone'
 
-const PersonalInfo = () => {
+const PersonalInfo = ({ t }) => {
   const {
     currentStep,
     formData,
@@ -39,9 +41,9 @@ const PersonalInfo = () => {
   return (
     <Layout
       currentStep={currentStep}
-      heading="Cadastro"
+      heading={t('Cadastro')}
       stepCount={STEP_COUNT}
-      subheading="Dados Pessoais"
+      subheading={t('Dados Pessoais')}
     >
       <Form
         disabled={isSubmitting || !isValid}
@@ -49,7 +51,7 @@ const PersonalInfo = () => {
       >
         <UploadProfilePicture
           onUploadPicture={src => {
-            alert('Sua foto de perfil enviada com sucesso.')
+            alert(t('Sua foto de perfil enviada com sucesso.'))
             setPictureSrc(src)
           }}
           pictureSrc={pictureSrc}
@@ -57,13 +59,13 @@ const PersonalInfo = () => {
         <Field
           error={!!errors.fullName}
           inputRef={register({ ...validations.personalInfo.fullName })}
-          label="Nome completo"
+          label={t('Nome completo')}
           name="fullName"
         />
         <Field
           error={!!errors.cpf}
           inputRef={register({ ...validations.personalInfo.cpf })}
-          label="CPF"
+          label={t('CPF')}
           name="cpf"
           onChange={event =>
             (event.target.value = formatCpf(event.target.value))
@@ -72,7 +74,7 @@ const PersonalInfo = () => {
         <Field
           error={!!errors.phone}
           inputRef={register({ ...validations.personalInfo.phone })}
-          label="Celular"
+          label={t('Celular')}
           name="phone"
           onChange={event =>
             (event.target.value = formatPhone(event.target.value))
@@ -82,7 +84,7 @@ const PersonalInfo = () => {
         <Field
           error={!!errors.dateOfBirth}
           inputRef={register}
-          label="Data de nascimento"
+          label={t('Data de nascimento')}
           name="dateOfBirth"
           onChange={event =>
             (event.target.value = formatDate(event.target.value))
@@ -93,7 +95,7 @@ const PersonalInfo = () => {
           defaultValue={watch('gender')}
           error={!!errors.gender}
           inputRef={register}
-          label="Gênero"
+          label={t('Gênero')}
           name="gender"
         >
           {genders.map(gender => (
@@ -107,4 +109,8 @@ const PersonalInfo = () => {
   )
 }
 
-export default PersonalInfo
+PersonalInfo.propTypes = {
+  t: PropTypes.func.isRequired
+}
+
+export default withTranslation('common')(PersonalInfo)

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 
+import { withTranslation } from '@/i18n'
 import { Button } from '@/src/components/Button'
 import { Carousel } from '@/src/components/Carousel'
 import { Layout } from '@/src/components/Layout'
@@ -12,7 +14,7 @@ import { PERSONAL_INFO_FORM, PLAN_SELECTION_FORM } from '@/src/constants/steps'
 import { RegisterFormContainer } from '@/src/containers/RegisterForm'
 import { fetchGifByQuery } from '@/src/services/gif'
 
-const PlanSelection = () => {
+const PlanSelection = ({ t }) => {
   const {
     currentStep,
     setCurrentStep,
@@ -47,7 +49,7 @@ const PlanSelection = () => {
 
   useEffect(() => {
     if (!isCorrectStep) {
-      alert('Retornando para o primeiro passo.')
+      alert(t('Retornando para o primeiro passo.'))
       replace('/register/personal-info')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,16 +59,16 @@ const PlanSelection = () => {
     <Layout
       canGoBack
       currentStep={PLAN_SELECTION_FORM}
-      heading="Cadastro"
+      heading={t('Cadastro')}
       stepCount={STEP_COUNT}
-      subheading="Planos"
+      subheading={t('Planos')}
     >
       <Stack spaceBetween="x4">
         <Text as="h3" fontSize="x3" lineHeight="x2" textAlign="center">
-          Escolha seu plano
+          {t('Escolha seu plano')}
         </Text>
         <Carousel
-          aria-label="Planos disponíveis."
+          aria-label={t('Planos disponíveis.')}
           currentSlide={selectedPlan}
           onChangeSlide={setSelectedPlan}
         >
@@ -83,11 +85,15 @@ const PlanSelection = () => {
             push('/register/confirmation')
           }}
         >
-          Avançar
+          {t('Avançar')}
         </Button>
       </Stack>
     </Layout>
   )
 }
 
-export default PlanSelection
+PlanSelection.propTypes = {
+  t: PropTypes.func.isRequired
+}
+
+export default withTranslation('common')(PlanSelection)
