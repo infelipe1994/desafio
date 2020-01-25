@@ -10,7 +10,7 @@ export const Text = styled.p`
     textTransform ? `text-transform: ${textTransform}` : ''};
 `
 
-Text.defaulProps = {
+Text.defaultProps = {
   fontSize: 'x3',
   lineHeight: 'x3'
 }
