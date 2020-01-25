@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { withTranslation } from '@/i18n'
 import { Icon } from '@/src/components/Icon'
 import { theme } from '@/src/theme'
 
@@ -36,29 +37,32 @@ const Component = styled.div(
   `
 )
 
-export const ControlButtonGroup = ({ handleNext, handlePrevious, slide }) => (
-  <Component aria-label="Controles de navegação." role="group">
-    <ControlButton
-      aria-label="Anterior."
-      href={`#${slide}`}
-      onClick={handlePrevious}
-      role="button"
-    >
-      <Icon color={theme.colors.water} name="chevronLeft" />
-    </ControlButton>
-    <ControlButton
-      aria-label="Próximo."
-      href={`#${slide}`}
-      onClick={handleNext}
-      role="button"
-    >
-      <Icon color={theme.colors.water} name="chevronRight" />
-    </ControlButton>
-  </Component>
+export const ControlButtonGroup = withTranslation('common')(
+  ({ handleNext, handlePrevious, slide, t }) => (
+    <Component aria-label={t('Controles de navegação.')} role="group">
+      <ControlButton
+        aria-label={t('Anterior.')}
+        href={`#${slide}`}
+        onClick={handlePrevious}
+        role="button"
+      >
+        <Icon color={theme.colors.water} name="chevronLeft" />
+      </ControlButton>
+      <ControlButton
+        aria-label={t('Próximo.')}
+        href={`#${slide}`}
+        onClick={handleNext}
+        role="button"
+      >
+        <Icon color={theme.colors.water} name="chevronRight" />
+      </ControlButton>
+    </Component>
+  )
 )
 
 ControlButtonGroup.propTypes = {
   handleNext: PropTypes.func.isRequired,
   handlePrevious: PropTypes.func.isRequired,
-  slide: PropTypes.number.isRequired
+  slide: PropTypes.number.isRequired,
+  t: PropTypes.func.isRequired
 }

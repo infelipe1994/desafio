@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
+import { withTranslation } from '@/i18n'
 import { Field } from '@/src/components/Field'
 import { Form } from '@/src/components/Form'
 import { Layout } from '@/src/components/Layout'
@@ -21,7 +23,7 @@ const ADDRESS_DICTIONARY = {
   street: 'logradouro'
 }
 
-const Address = () => {
+const Address = ({ t }) => {
   const {
     currentStep,
     formData,
@@ -71,7 +73,7 @@ const Address = () => {
 
   useEffect(() => {
     if (!isCorrectStep) {
-      alert('Retornando para o primeiro passo.')
+      alert(t('Retornando para o primeiro passo.'))
       replace('/register/personal-info')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -81,9 +83,9 @@ const Address = () => {
     <Layout
       canGoBack
       currentStep={ADDRESS_FORM}
-      heading="Cadastro"
+      heading={t('Cadastro')}
       stepCount={STEP_COUNT}
-      subheading="Endereço"
+      subheading={t('Endereço')}
     >
       <Form
         disabled={isSubmitting || !isValid}
@@ -92,7 +94,7 @@ const Address = () => {
         <Field
           error={!!errors.cep}
           inputRef={required}
-          label="CEP"
+          label={t('CEP')}
           name="cep"
           onChange={async event => {
             event.target.value = formatCep(event.target.value)
@@ -102,7 +104,7 @@ const Address = () => {
               const fetchedData = await fetchAddressByCep(replaceNotNumber(cep))
 
               if (fetchedData.erro) {
-                alert('CEP não encontrado.')
+                alert(t('CEP não encontrado.'))
               } else {
                 setFetchedAddress(fetchedData)
               }
@@ -114,39 +116,39 @@ const Address = () => {
         <Field
           error={!!errors.street}
           inputRef={required}
-          label="Endereço"
+          label={t('Endereço')}
           name="street"
         />
         <Field
           error={!!errors.number}
           inputRef={required}
-          label="Número"
+          label={t('Número')}
           name="number"
         />
         <Field
           error={!!errors.detail}
           inputRef={register}
-          label="Complemento"
+          label={t('Complemento')}
           name="detail"
         />
         <Field
           error={!!errors.neighborhood}
           inputRef={required}
-          label="Bairro"
+          label={t('Bairro')}
           name="neighborhood"
         />
         <Field
           disabled
           error={!!errors.city}
           inputRef={required}
-          label="Cidade"
+          label={t('Cidade')}
           name="city"
         />
         <Field
           disabled
           error={!!errors.state}
           inputRef={required}
-          label="Estado"
+          label={t('Estado')}
           name="state"
         />
       </Form>
@@ -154,4 +156,8 @@ const Address = () => {
   )
 }
 
-export default Address
+Address.propTypes = {
+  t: PropTypes.func.isRequired
+}
+
+export default withTranslation('common')(Address)

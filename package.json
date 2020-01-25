@@ -5,8 +5,8 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
-    "dev": "next dev",
-    "start": "next start",
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
     "storybook": "start-storybook -p 6006",
     "test": "jest"
   },
@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.1.7",
+    "next-i18next": "^4.1.0",
     "next-offline": "^5.0.0-beta.11",
     "next-page-transitions": "^1.0.0-beta.2",
     "preact": "^10.2.1",
