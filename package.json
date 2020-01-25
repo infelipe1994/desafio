@@ -5,8 +5,8 @@
   "scripts": {
     "build": "next build",
     "build-storybook": "build-storybook",
-    "dev": "node server.js",
-    "start": "NODE_ENV=production node server.js",
+    "dev": "node index.js",
+    "start": "NODE_ENV=production node index.js",
     "storybook": "start-storybook -p 6006",
     "test": "jest"
   },

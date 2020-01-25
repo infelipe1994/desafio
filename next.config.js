@@ -9,8 +9,8 @@ module.exports = withOffline({
         ? process.env.LOCALE_SUBPATHS
         : 'none'
   },
-  generateInDevMode: true,
   target: 'serverless',
+  generateInDevMode: true,
   transformManifest: function(manifest) {
     return ['/'].concat(manifest)
   },
