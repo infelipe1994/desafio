@@ -1,7 +1,14 @@
 var path = require('path')
 var withOffline = require('next-offline')
+require('dotenv').config()
 
 module.exports = withOffline({
+  env: {
+    LOCALE_SUBPATHS:
+      typeof process.env.LOCALE_SUBPATHS === 'string'
+        ? process.env.LOCALE_SUBPATHS
+        : 'none'
+  },
   generateInDevMode: true,
   target: 'serverless',
   transformManifest: function(manifest) {
