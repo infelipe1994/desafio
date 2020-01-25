@@ -24,7 +24,11 @@ export const ProfilePicture = ({ setSrc, src }) => {
     >
       <label htmlFor={id.current} style={{ cursor: 'pointer', lineHeight: 0 }}>
         {src ? (
-          <img alt="Foto de perfil." src={src} style={{ ...containerSize }} />
+          <img
+            alt="Foto de perfil."
+            src={src}
+            style={{ ...containerSize, objectFit: 'cover' }}
+          />
         ) : (
           <Icon
             {...iconSize}

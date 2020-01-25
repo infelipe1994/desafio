@@ -17,9 +17,13 @@ const iconSize = {
 }
 
 const Confirmation = () => {
+  const {
+    formData,
+    isFinished,
+    STEP_COUNT
+  } = RegisterFormContainer.useContainer()
   const { replace } = useRouter()
-  const registerFormContainer = RegisterFormContainer.useContainer()
-  const isCorrectStep = registerFormContainer.isFinished
+  const isCorrectStep = isFinished
 
   useEffect(() => {
     if (!isCorrectStep) {
@@ -27,7 +31,7 @@ const Confirmation = () => {
       replace('/register/personal-info')
     }
 
-    console.log(registerFormContainer.formData)
+    console.log(formData)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -35,7 +39,7 @@ const Confirmation = () => {
     <Layout
       currentStep={PLAN_SELECTION_FORM}
       heading="Cadastro"
-      stepCount={registerFormContainer.STEP_COUNT}
+      stepCount={STEP_COUNT}
     >
       <Box paddingTop="x9">
         <Center alsoCenterText>

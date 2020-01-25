@@ -23,6 +23,13 @@ const ADDRESS_DICTIONARY = {
 
 const Address = () => {
   const {
+    currentStep,
+    formData,
+    setAddressData,
+    setCurrentStep,
+    STEP_COUNT
+  } = RegisterFormContainer.useContainer()
+  const {
     errors,
     formState,
     handleSubmit,
@@ -30,19 +37,18 @@ const Address = () => {
     setValue,
     triggerValidation
   } = useForm({
-    defaultValues: defaultValues.address,
+    defaultValues: formData.address,
     mode: 'onBlur'
   })
   const { push, replace } = useRouter()
-  const [addressData, setAddressData] = useState()
+  const [fetchedAddress, setFetchedAddress] = useState()
   const { isSubmitting, isValid } = formState
   const onSubmit = data => {
-    registerFormContainer.setAddressData(data)
-    registerFormContainer.setCurrentStep(PLAN_SELECTION_FORM)
+    setAddressData(data)
+    setCurrentStep(PLAN_SELECTION_FORM)
     push('/register/plan-selection')
   }
-  const registerFormContainer = RegisterFormContainer.useContainer()
-  const isCorrectStep = registerFormContainer.currentStep === ADDRESS_FORM
+  const isCorrectStep = currentStep >= ADDRESS_FORM
   const required = register({ required: true })
   const setValues = useCallback(
     (from, to, shouldValidate) => {
@@ -58,10 +64,10 @@ const Address = () => {
   )
 
   useEffect(() => {
-    if (addressData) {
-      setValues(ADDRESS_DICTIONARY, addressData, true)
+    if (fetchedAddress) {
+      setValues(ADDRESS_DICTIONARY, fetchedAddress, true)
     }
-  }, [addressData, setValues])
+  }, [fetchedAddress, setValues])
 
   useEffect(() => {
     if (!isCorrectStep) {
@@ -76,7 +82,7 @@ const Address = () => {
       canGoBack
       currentStep={ADDRESS_FORM}
       heading="Cadastro"
-      stepCount={registerFormContainer.STEP_COUNT}
+      stepCount={STEP_COUNT}
       subheading="Endereço"
     >
       <Form
@@ -93,12 +99,12 @@ const Address = () => {
             const cep = event.target.value
 
             if (cep.length === MASKED_CEP_LENGTH) {
-              const data = await fetchAddressByCep(replaceNotNumber(cep))
+              const fetchedData = await fetchAddressByCep(replaceNotNumber(cep))
 
-              if (data.erro) {
+              if (fetchedData.erro) {
                 alert('CEP não encontrado.')
               } else {
-                setAddressData(data)
+                setFetchedAddress(fetchedData)
               }
             } else {
               setValues(ADDRESS_DICTIONARY, defaultValues.address)

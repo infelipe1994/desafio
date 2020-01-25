@@ -7,7 +7,6 @@ import { Form } from '@/src/components/Form'
 import { Layout } from '@/src/components/Layout'
 import { Select } from '@/src/components/Select'
 import { UploadProfilePicture } from '@/src/components/UploadProfilePicture'
-import { defaultValues } from '@/src/constants/defaultValues'
 import { genders } from '@/src/constants/genders'
 import { ADDRESS_FORM } from '@/src/constants/steps'
 import { validations } from '@/src/constants/validations'
@@ -17,25 +16,31 @@ import { formatDate } from '@/src/utilities/formatDate'
 import { formatPhone } from '@/src/utilities/formatPhone'
 
 const PersonalInfo = () => {
+  const {
+    currentStep,
+    formData,
+    setCurrentStep,
+    setPersonalInfoData,
+    STEP_COUNT
+  } = RegisterFormContainer.useContainer()
   const { errors, formState, handleSubmit, register, watch } = useForm({
-    defaultValues: defaultValues.personalInfo,
+    defaultValues: formData.personalInfo,
     mode: 'onBlur'
   })
   const { push } = useRouter()
-  const [pictureSrc, setPictureSrc] = useState('')
+  const [pictureSrc, setPictureSrc] = useState(formData.personalInfo.pictureSrc)
   const { isSubmitting, isValid } = formState
   const onSubmit = data => {
-    registerFormContainer.setCurrentStep(ADDRESS_FORM)
-    registerFormContainer.setPersonalInfoData({ ...data, pictureSrc })
+    setCurrentStep(ADDRESS_FORM)
+    setPersonalInfoData({ ...data, pictureSrc })
     push('/register/address')
   }
-  const registerFormContainer = RegisterFormContainer.useContainer()
 
   return (
     <Layout
-      currentStep={registerFormContainer.currentStep}
+      currentStep={currentStep}
       heading="Cadastro"
-      stepCount={registerFormContainer.STEP_COUNT}
+      stepCount={STEP_COUNT}
       subheading="Dados Pessoais"
     >
       <Form
