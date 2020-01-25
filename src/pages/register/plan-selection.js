@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { useRouter } from 'next/router'
 
 import { Button } from '@/src/components/Button'
@@ -14,12 +13,17 @@ import { RegisterFormContainer } from '@/src/containers/RegisterForm'
 import { fetchGifByQuery } from '@/src/services/gif'
 
 const PlanSelection = () => {
+  const {
+    currentStep,
+    setCurrentStep,
+    setFinished,
+    setPlanSelectionData,
+    STEP_COUNT
+  } = RegisterFormContainer.useContainer()
   const { push, replace } = useRouter()
   const [gifs, setGifs] = useState([])
   const [selectedPlan, setSelectedPlan] = useState(0)
-  const registerFormContainer = RegisterFormContainer.useContainer()
-  const isCorrectStep =
-    registerFormContainer.currentStep === PLAN_SELECTION_FORM
+  const isCorrectStep = currentStep >= PLAN_SELECTION_FORM
 
   useEffect(() => {
     const fetchGifs = async query => {
@@ -27,8 +31,8 @@ const PlanSelection = () => {
 
       if (data.length) {
         const urls = data.reduce(
-          (accumulator, currentGif) => [
-            ...accumulator,
+          (accumulatedGifs, currentGif) => [
+            ...accumulatedGifs,
             currentGif.images.fixed_height.url
           ],
           []
@@ -54,7 +58,7 @@ const PlanSelection = () => {
       canGoBack
       currentStep={PLAN_SELECTION_FORM}
       heading="Cadastro"
-      stepCount={registerFormContainer.STEP_COUNT}
+      stepCount={STEP_COUNT}
       subheading="Planos"
     >
       <Stack spaceBetween="x4">
@@ -73,9 +77,9 @@ const PlanSelection = () => {
         <Button
           isFullWidth
           onClick={() => {
-            registerFormContainer.setCurrentStep(PERSONAL_INFO_FORM)
-            registerFormContainer.setFinished(true)
-            registerFormContainer.setPlanSelectionData({ selectedPlan })
+            setCurrentStep(PERSONAL_INFO_FORM)
+            setFinished(true)
+            setPlanSelectionData({ selectedPlan })
             push('/register/confirmation')
           }}
         >
